@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.nav{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.lista{
+    margin-right: 30%;
+}
+
+.img-nav{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: block;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+li{
+    margin-left: 50px;
+}
+
+.header{
+    background-color: darkgray;
+}
