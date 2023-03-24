@@ -1,9 +1,11 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightskyblue;
 }
 
-.section{
+.section1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +31,7 @@ ul{
 }
 
 .lista{
-    margin-right: 30%;
+    margin-right: 3%;
 }
 
 .img-nav{
@@ -39,8 +41,10 @@ ul{
     flex-direction: block;
     text-align: center;
     justify-content: center;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    border-color: blue;
+    border-style: solid;
 }
 
 li{
@@ -48,5 +52,32 @@ li{
 }
 
 .header{
-    background-color: darkgray;
+    background-color: darkblue;
+}
+
+.section{
+    margin-left: 5%;
+    margin-right: 5%;
+    color: navy;
+}
+
+.titulos{
+    color: royalblue;
+}
+
+h3{
+    color: dodgerblue;
+}
+
+.section2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    background-color: lightblue;
+    color: navy;
+}
+
+.a-footer{
+    color: royalblue;
 }
