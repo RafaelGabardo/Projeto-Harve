@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: lightskyblue;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border-color: blue;
+    border-style: solid;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
