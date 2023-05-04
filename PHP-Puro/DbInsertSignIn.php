@@ -2,7 +2,7 @@
     // Estou meio confuso porque tudo o que tento não está dando certo, alguém me ajuda por favor
 
     // Fazendo o requerimento do arquivo
-    require('SignIn.php');
+    require('HTML-CSS/SignIn.php');
 
     // Dando nome à classe e extendendo da classe Connection
     class Insert extends Connection

@@ -2,7 +2,7 @@
     // Alguma coisa está dando errado, não sei se na conexão com o banco de dados ou se no arquivo de inserção, preciso de ajuda
 
     // Fazendo o requerimento do arquivo
-    require('SignIn.php');
+    require('HTML-CSS/SignIn.php');
 
     // Declarando o nome da classe
     class Connection
