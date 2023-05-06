@@ -1,3 +1,6 @@
+<?php
+    include_once('PHP-Puro/DbConn.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
