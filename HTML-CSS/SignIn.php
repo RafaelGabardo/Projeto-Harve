@@ -1,6 +1,3 @@
-<?php
-    include_once('PHP-Puro/DbConn.php');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +6,7 @@
     <link rel="stylesheet" href="SignIn.css">
 </head>
 <body>
-    <form class="form" action="SignIn.php" method="$_POST">
+    <form class="form" action="SignIn.php" method="POST">
         <label class="label" for="fullname">Insira seu nome completo:</label> <br>
         <input class="text" type="text" name="fullname" placeholder="Aderbal Silva"> <br><br>
         <label class="label" for="username">Insira seu nome de usuário:</label> <br>
