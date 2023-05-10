@@ -20,7 +20,7 @@
         $birthdate = $_POST['birthdate'];
 
         // Fazendo o if para caso as senhas não correspondam aos requisitos (algo está dando errado)
-        if(!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $pass1) && !preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $pass2)) {
+        if(!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,36}$/', $pass1) && !preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,36}$/', $pass2)) {
             die('As senhas devem seguir os parâmetros: <br>
             -Conter no mínimo 8 caracteres e no máximo 36; <br>
             -Conter pelo menos 1 letra maiúscula, 1 letra minúscula e pelo menos 1 número; <br>
