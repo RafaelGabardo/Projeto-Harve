@@ -1,40 +1,43 @@
 <?php
-    // Declarando variáveis para conexão com o banco de dados
+    // Declarando as variáveis
     $host = 'localhost';
     $password = '';
     $user = 'root';
     $dbname = 'projetoharve';
 
-    // fazendo o if para caso apertem no botão "submit"
+    // Fazendo o if para caso apertem no botão "submit"
     if(isset($_POST['submit'])) {
         // Fazendo a conexão com o banco de dados
         $connect = new mysqli($host, $user, $password, $dbname);
 
-        // Armazenando os valores do formulário nas variáveis
+        // Inserindo os valores informados em variáveis
         $email = $_POST['email'];
         $pass = $_POST['pass'];
 
-        // Fazendo o primeiro query para selecionar o email
+        // Fazendo os querys para selecionar o email e a senha
         $sql = "
             SELECT
-                {$email}
+                `email`
             FROM
                 users
         ";
 
-        // Fazendo o segundo query para selecionar a senha
         $select = "
             SELECT
-                {$pass}
+                `password`
             FROM
                 users
         ";
 
-        // Fazendo o if para caso a execução de ambos os querys dê erro
-        if(!$connect->query($sql) && !$connect->query($select)) {
-            echo 'Usuário ou senha não correspondem';
-        } else {
+        // Executando os querys e armazenando em variáveis
+        $e = $connect->query($sql);
+        $p = $connect->query($select);
+
+        // Fazendo o if para caso os valores existam no banco de dados ou não
+        if($email === $e && $pass === $p) {
             require('Forum.php');
+        } else {
+            echo 'Usuário ou senha incorretos! <br>';
         }
     }
 ?>
