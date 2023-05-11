@@ -14,7 +14,7 @@
         $email = $_POST['email'];
         $pass = $_POST['pass'];
 
-        // Fazendo os querys para selecionar o email e a senha
+        // Fazendo os querys para selecionar o email e a senha (algo está dando errado)
         $sql = "
             SELECT
                 `email`
