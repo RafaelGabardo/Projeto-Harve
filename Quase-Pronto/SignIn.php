@@ -1,5 +1,5 @@
 <?php
-    // Declarando variáveis
+    // Declarando as variáveis
     $host = 'localhost';
     $password = '';
     $user = 'root';
@@ -10,7 +10,7 @@
         // Fazendo a conexão com o banco de dados
         $connect = new mysqli($host, $user, $password, $dbname);
 
-        // Inserindo os valores informados em variáveis
+        // Armazenando os valores do form em variáveis
         $fullname = $_POST['fullname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -19,7 +19,7 @@
         $address = $_POST['address'];
         $birthdate = $_POST['birthdate'];
 
-        // Fazendo a verificação das senhas
+        // Fazendo o if para caso as senhas não correspondam aos parâmetros
         if(!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,36}$/', $pass1) && !preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,36}$/', $pass2)) {
             die('As senhas devem seguir os parâmetros: <br>
             -Conter no mínimo 8 caracteres e no máximo 36; <br>
@@ -28,7 +28,7 @@
         ');
         }
 
-        // Fazendo a verificação para caso as senhas sejam iguais
+        // Fazendo o if para caso ambas as senhas sejam iguais
         if($pass1 === $pass2) {
             // Fazendo o query para inserir os valores no banco de dados
             $sql = "
@@ -38,22 +38,23 @@
                     ('$fullname','$username','$email','$pass1','$address','$birthdate',NOW())
             ";
 
-            // Fazendo o query para verificar se o email já está cadastrado (estou com dúvida)
+            // Fazendo o query para garantir que o email já foi cadastrado ou não
             $search = "
                 SELECT
-                    `email`
+                    `id`
                 FROM
                     users
+                WHERE
+                    `email` = '$email'
             ";
 
             $e = $connect->query($search);
 
-            // Verificando se o email já está cadastrado
-            if($email === $e) {
+            if($e) {
                 die('Esse email já está cadastrado! <br>');
             }
 
-            // Fazendo o if para caso a execucçao do query para inserir dê certo ou errado
+            // Fazendo o if para caso o query seja executado com sucesso
             if($connect->query($sql)) {
                 echo 'Dados salvos com sucesso! <br>';
             } else {
@@ -70,6 +71,20 @@
     <meta charset="UTF-8">
     <title>Sign in</title>
     <link rel="stylesheet" href="SignIn.css">
+    <script>
+        // Declarando as variáveis
+        let email = document.getElementById('email');
+        let pass1 = document.getElementById('pass1');
+        let pass2 = document.getElementById('pass2');
+        // Fazendo a validação das senhas
+        let passValidate = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,36}$/;
+        let password = pass1.test(passValidate) + pass2.test(passValidate);
+
+        // Fazendo o if para caso as senhas não correspondam aos parâmetros
+        if(!password) {
+            document.write('A senha deve seguir os parâmetros: <br> -Conter no mínimo 8 caracteres e no máximo 36; <br> -Conter pelo menos 1 letra maiúscula, 1 letra minúscula e pelo menos 1 número; <br> -Conter pelo menos 1 símbolo. <br>');
+        }
+    </script>
 </head>
 <body>
     <form class="form" action="SignIn.php" method="POST">
