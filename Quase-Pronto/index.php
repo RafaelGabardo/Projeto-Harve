@@ -1,5 +1,5 @@
 <?php
-    // Declarando as variáveis
+    // Declarando variáveis
     $host = 'localhost';
     $password = '';
     $user = 'root';
@@ -10,31 +10,25 @@
         // Fazendo a conexão com o banco de dados
         $connect = new mysqli($host, $user, $password, $dbname);
 
-        // Inserindo os valores informados em variáveis
+        // Colocando os valores do form em variáveis
         $email = $_POST['email'];
         $pass = $_POST['pass'];
 
-        // Fazendo os querys para selecionar o email e a senha
+        // Fazendo o query para verificar se as informações passadas são corretas
         $sql = "
             SELECT
-                `email`
+                `id`
             FROM
                 users
+            WHERE
+                `email` = '$email' AND `password` = '$pass'
         ";
 
-        $select = "
-            SELECT
-                `password`
-            FROM
-                users
-        ";
-
-        // Executando os querys e armazenando em variáveis
+        // Executando o query e armazenando numa variável
         $e = $connect->query($sql);
-        $p = $connect->query($select);
 
-        // Fazendo o if para caso os valores existam no banco de dados ou não
-        if($email === $e && $pass === $p) {
+        // Fazendo o if para caso o query retorne verdadeiro, vá para a página do fórum, se não exibe uma mensagem
+        if($e) {
             require('Forum.php');
         } else {
             echo 'Usuário ou senha incorretos! <br>';
