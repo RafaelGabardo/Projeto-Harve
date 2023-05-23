@@ -145,6 +145,16 @@ body{
 
 .div-posts{
     margin: 20px;
+    height: auto;
+    width: 50%;
+}
+
+.posts-list{
+    color: darkblue;
+}
+
+.posts{
+    list-style: none;
 }
 
 .h1-posts{
